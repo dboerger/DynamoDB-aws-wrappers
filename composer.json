@@ -11,7 +11,7 @@
     "require"     : {
         "aws/aws-sdk-php": "^3.22",
         "oasis/logging"  : "^1.3",
-        "oasis/event"    : "dev-timestampable",
+        "oasis/event"    : "dev-Timestampable",
         "doctrine/common": "^2.7"
     },
     "require-dev" : {
