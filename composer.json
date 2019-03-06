@@ -2,16 +2,10 @@
     "name"        : "oasis/aws-wrappers",
     "description" : "Wrappers for AWS SDK",
     "type"        : "library",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/dboerger/DynamoDB-php-event"
-        }
-    ],
     "require"     : {
         "aws/aws-sdk-php": "^3.22",
         "oasis/logging"  : "^1.3",
-        "oasis/event"    : "dev-Timestampable",
+        "oasis/event"    : "^1.0",
         "doctrine/common": "^2.7"
     },
     "require-dev" : {
