@@ -42,7 +42,7 @@ class AwsConfigDataProvider
         {
             throw new MandatoryValueMissingException('Data \'I am Role\' is not set.'."\r".print_r($data, true));
         }
-        if (!getenv('AWS_ACCESS_KEY_ID') || !getenv('AWS_SECRET_ACCESS_KEY')) {
+        if (!getenv('AWS_ACCESS_KEY_ID') && !getenv('AWS_SECRET_ACCESS_KEY')) {
             if (!getenv('AWS_SECRET_ACCESS_KEY')) {
                 throw new MandatoryValueMissingException('Environment \'AWS Access Key\' is not set.' . "\r" . print_r(getenv()));
             }
