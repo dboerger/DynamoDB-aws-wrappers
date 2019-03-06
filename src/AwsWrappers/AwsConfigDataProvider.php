@@ -31,6 +31,25 @@ class AwsConfigDataProvider
         if (!isset($data['config']) && $version) {
             $data['version'] = $version;
         }
+        if (!isset($data['credentials'])){
+            throw new MandatoryValueMissingException('Data \'Credentials\' is not set.'."\r".print_r($data, true));
+        }
+        if (!isset($data['profile']))
+        {
+            throw new MandatoryValueMissingException('Data \'Profile\' is not set.'."\r".print_r($data, true));
+        }
+        if (!isset($data['iamrole']))
+        {
+            throw new MandatoryValueMissingException('Data \'I am Role\' is not set.'."\r".print_r($data, true));
+        }
+        if (!getenv('AWS_ACCESS_KEY_ID') || !getenv('AWS_SECRET_ACCESS_KEY')) {
+            if (!getenv('AWS_SECRET_ACCESS_KEY')) {
+                throw new MandatoryValueMissingException('Environment \'AWS Access Key\' is not set.' . "\r" . print_r(getenv()));
+            }
+            if (!getenv('AWS_ACCESS_KEY_ID')) {
+                throw new MandatoryValueMissingException('Environment \'AWS Access Key ID\' is not set.' . "\r" . print_r(getenv()));
+            }
+        }
         if (!isset($data['credentials'])
             && !isset($data['profile'])
             && (!getenv('AWS_ACCESS_KEY_ID') || !getenv('AWS_SECRET_ACCESS_KEY'))
